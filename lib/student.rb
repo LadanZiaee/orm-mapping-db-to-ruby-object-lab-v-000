@@ -61,7 +61,10 @@ class Student
   end
   
   def self.first_student_in_grade_10
-    self.first_X_students_in_grade_10(2).first
+    sql = <<-SQL 
+      SELECT * FROM students WHERE students.grade = 10 LIMIT 1;
+    SQL
+    DB[:conn].ececute(sql)
   end
   
   def save
