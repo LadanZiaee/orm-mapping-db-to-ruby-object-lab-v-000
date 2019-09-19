@@ -24,7 +24,7 @@ class Student
     sql = <<-SQL
       SELECT students.name FROM students WHERE grade = 9;
      SQL
-    DB[:conn].execute(sql, name).map do |row|
+    DB[:conn].execute(sql).map do |row|
       row
     end 
   end
