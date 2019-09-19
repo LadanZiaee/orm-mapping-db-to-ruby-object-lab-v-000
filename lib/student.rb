@@ -33,7 +33,7 @@ class Student
     sql = <<-SQL
       SELECT name FROM students WHERE grade < 12;
      SQL
-    DB[:conn].execute(sql).map do |row| 
+    DB[:conn].execute(sql).each do |row| 
       row
     end
   end
