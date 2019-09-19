@@ -22,13 +22,16 @@ class Student
   
   def self.all_students_in_grade_9
     sql = <<-SQL
-      SELECT students.name FROM students WHERE grade = 9;
+      SELECT * FROM students WHERE grade = 9;
      SQL
     DB[:conn].execute(sql).map do |row|
       row
     end 
   end
 
+  def self.students_below_12_grade
+    
+  end
   def self.find_by_name(name)
     # find the student in the database given a name
     # return a new instance of the Student class
