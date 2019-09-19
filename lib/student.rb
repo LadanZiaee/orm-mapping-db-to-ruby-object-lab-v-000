@@ -33,7 +33,9 @@ class Student
     sql = <<-SQL
       SELECT students.name FROM students WHERE grade < 12;
      SQL
-    DB[:conn].execute(sql).map{|row| row}
+    DB[:conn].execute(sql).map do |row| 
+      row
+    end
   end
   
   def self.find_by_name(name)
