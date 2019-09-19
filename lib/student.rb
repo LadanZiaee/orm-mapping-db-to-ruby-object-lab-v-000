@@ -34,7 +34,8 @@ class Student
       SELECT * FROM students WHERE grade < 12;
      SQL
     DB[:conn].execute(sql).map do |row| 
-      row[1]
+      new = self.new_from_db(row)
+      new.name
     end
   end
   
